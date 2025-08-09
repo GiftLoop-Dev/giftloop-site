@@ -232,8 +232,8 @@
             button.textContent = 'Processing...';
             
             // Redirect to the Shopify app auth endpoint
-            // Updated: Using latest deployment with correct env vars
-            const authUrl = `https://giftloop-oqpauc82e-roberts-projects-0d90b5aa.vercel.app/auth?shop=${encodeURIComponent(shopValue)}`;
+            // Final: Using app subdomain (DNS propagated)
+            const authUrl = `https://app.giftloop.app/auth?shop=${encodeURIComponent(shopValue)}`;
             window.location.href = authUrl;
         });
     </script>
