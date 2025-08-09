@@ -1,0 +1,11 @@
+{
+  "name": "giftloop-site",
+  "version": "1.0.0",
+  "description": "GiftLoop landing page and marketing site",
+  "scripts": {
+    "dev": "python3 -m http.server 8000"
+  },
+  "keywords": ["shopify", "giftloop", "reminders"],
+  "author": "GiftLoop",
+  "license": "MIT"
+}

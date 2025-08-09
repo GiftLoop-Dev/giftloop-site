@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GiftLoop - Never Miss a Gift Occasion</title>
+    <meta name="description" content="Turn one-time gift buyers into repeat customers with automated gift reminders. Boost retention by 40% with timely, personalized reminders for Shopify stores.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        h1 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .tagline {
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+        
+        .form-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+        
+        form {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-end;
+        }
+        
+        .form-group {
+            flex: 1;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            transition: border-color 0.2s;
+            background: #fafafa;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+        }
+        
+        .hint {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: #666;
+        }
+        
+        button {
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .features {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .feature {
+            max-width: 20rem;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .feature strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            button {
+                width: 100%;
+            }
+            
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎁 GiftLoop - Never Miss a Gift Occasion</h1>
+        <p class="tagline">
+            Turn one-time gift buyers into repeat customers with automated gift reminders. 
+            Boost retention by 40% with timely, personalized reminders.
+        </p>
+        
+        <div class="form-container">
+            <form id="install-form">
+                <div class="form-group">
+                    <label for="shop">Shop domain</label>
+                    <input 
+                        type="text" 
+                        id="shop"
+                        name="shop" 
+                        placeholder="my-shop-domain"
+                        required 
+                    />
+                    <span class="hint">Enter your shop name (we'll add .myshopify.com)</span>
+                </div>
+                <button type="submit" id="install-btn">
+                    Install GiftLoop
+                </button>
+            </form>
+        </div>
+        
+        <ul class="features">
+            <li class="feature">
+                <strong>📅 Smart Reminders</strong>
+                Automatically remind customers about upcoming birthdays, anniversaries, and special occasions with personalized messages.
+            </li>
+            <li class="feature">
+                <strong>💰 Boost Revenue</strong>
+                Increase repeat purchases by up to 40% with timely gift reminders that bring customers back to your store.
+            </li>
+            <li class="feature">
+                <strong>⚡ Quick Setup</strong>
+                Simple 15-second checkout integration. Customers opt-in with just their email and event date.
+            </li>
+        </ul>
+    </div>
+    
+    <script>
+        document.getElementById('install-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const shopInput = document.getElementById('shop');
+            const button = document.getElementById('install-btn');
+            let shopValue = shopInput.value.trim();
+            
+            // Clean up the shop domain
+            shopValue = shopValue.replace(/^https?:\/\//, '');
+            shopValue = shopValue.replace(/\/$/, '');
+            
+            // Add .myshopify.com if not present
+            if (shopValue && !shopValue.includes('.myshopify.com')) {
+                shopValue = shopValue + '.myshopify.com';
+            }
+            
+            // Disable button and show processing
+            button.disabled = true;
+            button.textContent = 'Processing...';
+            
+            // Redirect to the Shopify app auth endpoint
+            // Update this URL to your app's domain
+            const authUrl = `https://app.giftloop.app/auth?shop=${encodeURIComponent(shopValue)}`;
+            window.location.href = authUrl;
+        });
+    </script>
+</body>
+</html>
