@@ -232,7 +232,8 @@
             button.textContent = 'Processing...';
             
             // Redirect to the Shopify app auth endpoint
-            const authUrl = `https://app.giftloop.app/auth?shop=${encodeURIComponent(shopValue)}`;
+            // Temporary: Using direct Vercel URL until DNS propagates
+            const authUrl = `https://giftloop-qo1cwbd30-roberts-projects-0d90b5aa.vercel.app/auth?shop=${encodeURIComponent(shopValue)}`;
             window.location.href = authUrl;
         });
     </script>
